@@ -36,9 +36,43 @@
 
 ## What This Does
 
-<!-- The path a submission takes, from arriving to the label a reader sees.
-     Six or seven steps — this is the trace you wrote in Milestone 1. -->
+Provenance Guard is a small backend a writing site could plug into. A piece of
+text goes in; a guess about who wrote it comes out, along with how confident
+the system is, a plain-English label a reader actually sees, and a way for the
+writer to push back.
 
+The path a submission takes, from arriving to the label:
+
+1. **A `POST /submit` request arrives** with `{"text": ..., "creator_id": ...}`
+   — the writing, and who submitted it.
+2. **The input is checked** — is `text` present, non-empty, and not enormous?
+   Bad input is rejected before the model runs, and the rejection is logged.
+3. **A `content_id` is generated** — a unique identity the writer can use to
+   appeal this decision later.
+4. **Signal one reads the text for meaning** (`detector.model_signal`): a
+   local language model asks how *predictable* the text is. Predictable text
+   tends to be model-written, so this returns a score where higher means more
+   likely AI.
+5. **Signal two measures the text as text** (`stylometry.style_signal`): sentence
+   length spread, word variety, punctuation density — the shape of the writing,
+   without reading a word of it. Also higher = more likely AI.
+6. **The two scores are combined** into one confidence number
+   (`scoring.combine_signals`).
+7. **The number becomes a label** (`scoring.score_to_label`) — a full sentence
+   a non-technical reader sees, not a bare score. One of three: high-confidence
+   human, unsure, or high-confidence AI.
+8. **The decision is written to the audit log** (`audit.log_decision`) as one
+   JSON line in `logs/audit.jsonl` — timestamp, ids, both signal scores, the
+   combined score, the label, and a status.
+9. **JSON comes back** with `content_id`, `guess`, `confidence`, `label`, and
+   both signal scores.
+
+If a writer thinks the guess is wrong, they hit `POST /appeal` with the
+`content_id` and their reasoning. The item moves to `under_review`, the appeal
+is recorded beside the original decision in the append-only log, and nothing is
+re-checked automatically — a person is now in the loop. That path matters most
+for the writer who was wrongly accused; it is the only thing standing between a
+wrong label and no recourse at all.
 
 
 ---
