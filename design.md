@@ -170,3 +170,5 @@ behaviour all decided here so M3/M5 can build against it without asking.
   M4's combining rule.
 - The contracts (step 4) are what M3 and M5 build against.
 - `scoring.py::combine_signals` is the file and function the README must name.
+
+M3 signal-one finding: formal template text (ppl 16.6 → 0.83), short colloquial human (ppl 19.7 → 0.79), longer colloquial human (ppl 22.3 → 0.76) all land in the high-confidence-AI band. Signal one alone does not separate plain human writing from AI. This is the M1 blind spot; M4's second signal and combining rule exist to fix it.
