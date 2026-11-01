@@ -156,20 +156,11 @@ def health():
 @app.post("/submit")
 # @limiter.limit(f"{config.RATE_LIMIT_PER_MINUTE}/minute;{config.RATE_LIMIT_PER_DAY}/day")
 def submit():
-    """
-    **Milestone 5 — the label.**
-      8. `scoring.score_to_label(...)` and put the real label in the response.
 
-    ─────────────────────────────────────────────────────────────────────────
-    Worth deciding early, because unit 8's attack set will decide it for you:
-    what should this do when `text` is missing, empty, or enormous? A crash on
-    a malformed input is one of the most common real failures there is.
-    """
     payload = request.get_json(silent=True) or {}
     text = payload.get("text")
     creator_id = payload.get("creator_id")
 
-    # ── Minimal validation (M2 criterion 5: bad input → 4xx, never 5xx) ──
     if not isinstance(text, str) or not text.strip():
         audit.log_rejection(
             creator_id=creator_id or "unknown",
@@ -179,23 +170,17 @@ def submit():
 
     content_id = str(uuid.uuid4())
 
-    # ── Signal one (the only signal in M3) ──
     try:
         model_score = detector.model_signal(text)
     except ValueError as exc:
-        # Text too short to score (detector.perplexity raises on < 3 tokens)
         audit.log_rejection(
             creator_id=creator_id or "unknown",
             reason=f"unscoreable: {exc}",
         )
         return jsonify({"error": str(exc)}), 400
-
-    # ── Placeholders until M4/M5 ──
-    guess = "unsure"
-    label = "PLACEHOLDER label (filled in at Milestone 5)"
-    
     style_score = stylometry.style_signal(text)
     combined = scoring.combine_signals(model_score, style_score)
+    guess, label = scoring.score_to_label(combined)
     confidence = combined
     
     # ── Audit log: one JSON line per decision ──
@@ -221,33 +206,35 @@ def submit():
     
 @app.post("/appeal")
 def appeal():
-    """
-    A writer says you got it wrong. ← TODO — Milestone 5
-
-    Expects JSON:
-        {"content_id": "...", "reasoning": "..."}
-
-    Should:
-      1. Check the content_id actually exists — `audit.entries_for(id)` tells
-         you. A typo here fails silently and looks like a broken endpoint,
-         which is the single most common way this milestone eats an hour.
-      2. Record the appeal with `audit.log_appeal(...)`, which moves the item
-         to `under_review`.
-      3. Confirm to the writer. No automatic re-checking needed.
-
-    This is the smallest endpoint in the project and the one that matters most
-    to the person on the other end. It's the only thing standing between a
-    wrong accusation and nothing at all.
-    """
     payload = request.get_json(silent=True) or {}
+    content_id = payload.get("content_id")
+    reasoning = payload.get("reasoning")
 
-    # TODO: delete this and build the route.
+    if not isinstance(content_id, str) or not content_id.strip():
+        return jsonify({"error": "content_id is required"}), 400
+    if not isinstance(reasoning, str) or not reasoning.strip():
+        return jsonify({"error": "reasoning is required"}), 400
+
+    # Does this content_id exist in the log?
+    entries = audit.entries_for(content_id)
+    if not entries:
+        return jsonify({"error": "unknown content_id"}), 404
+
+    # Find the creator_id from the original decision, if there is one.
+    creator_id = "unknown"
+    for e in entries:
+        if e.get("creator_id"):
+            creator_id = e["creator_id"]
+            break
+
+    audit.log_appeal(content_id=content_id, creator_id=creator_id, reasoning=reasoning)
+
     return jsonify({
-        "error": "not_implemented",
-        "message": "POST /appeal isn't built yet — see the TODO in app.py.",
-        "you_sent": payload,
-    }), 501
-
+        "ok": True,
+        "content_id": content_id,
+        "status": "under_review",
+        "message": "Your appeal has been recorded. A person will review it.",
+    })
 
 # ── Already works ─────────────────────────────────────────────────────────────
 

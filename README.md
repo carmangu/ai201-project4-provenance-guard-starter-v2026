@@ -117,7 +117,14 @@ wrong label and no recourse at all.
 
 **A case where my two signals split, and what my rule does with it:**
 
+### Calibration status (Unit 7)
 
+Four calibration inputs produced a confidence range of 0.56–0.68. The
+clear-AI vs clear-human gap was 0.066, below my M2 criterion 2 target of 0.30.
+The formal human notice scored highest (0.675), confirming signal one's
+reverse blind spot; style_score stayed flat at 0.40–0.48 because its
+normalisation was tuned on short texts. This is not resolved in Unit 7 —
+Unit 8 diagnoses and attempts a fix.
 
 ---
 
