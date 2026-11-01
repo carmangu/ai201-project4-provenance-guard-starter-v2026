@@ -30,6 +30,7 @@ from flask import Flask, jsonify, request
 
 import audit
 import config
+import detector
 
 app = Flask(__name__)
 
@@ -200,18 +201,57 @@ def submit():
     a malformed input is one of the most common real failures there is.
     """
     payload = request.get_json(silent=True) or {}
+    text = payload.get("text")
+    creator_id = payload.get("creator_id")
 
-    # TODO: delete this and build the route.
+    # ── Minimal validation (M2 criterion 5: bad input → 4xx, never 5xx) ──
+    if not isinstance(text, str) or not text.strip():
+        audit.log_rejection(
+            creator_id=creator_id or "unknown",
+            reason="empty_or_missing_text",
+        )
+        return jsonify({"error": "text is required and must be a non-empty string"}), 400
+
+    content_id = str(uuid.uuid4())
+
+    # ── Signal one (the only signal in M3) ──
+    try:
+        model_score = detector.model_signal(text)
+    except ValueError as exc:
+        # Text too short to score (detector.perplexity raises on < 3 tokens)
+        audit.log_rejection(
+            creator_id=creator_id or "unknown",
+            reason=f"unscoreable: {exc}",
+        )
+        return jsonify({"error": str(exc)}), 400
+
+    # ── Placeholders until M4/M5 ──
+    guess = "unsure"
+    label = "PLACEHOLDER label (filled in at Milestone 5)"
+    confidence = model_score        # temporary: expose the real number
+    style_score = 0.0               # second signal not built yet
+
+    # ── Audit log: one JSON line per decision ──
+    audit.log_decision(
+        content_id=content_id,
+        creator_id=creator_id or "unknown",
+        guess=guess,
+        model_score=model_score,
+        style_score=style_score,
+        combined_score=confidence,
+        label=label,
+        status="decided",
+    )
+
     return jsonify({
-        "error": "not_implemented",
-        "message": "POST /submit isn't built yet — see the TODO in app.py.",
-        "you_sent": {
-            "text_length": len(payload.get("text", "")),
-            "creator_id": payload.get("creator_id"),
-        },
-    }), 501
-
-
+        "content_id": content_id,
+        "guess": guess,
+        "confidence": confidence,
+        "label": label,
+        "model_score": model_score,
+        "style_score": style_score,
+    })
+    
 @app.post("/appeal")
 def appeal():
     """

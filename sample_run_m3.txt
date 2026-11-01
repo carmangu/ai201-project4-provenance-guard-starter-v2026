@@ -1,0 +1,53 @@
+$ curl "http://127.0.0.1:5000/log?limit=8"
+{
+  "count": 3,
+  "entries": [
+    {
+      "creator_id": "me",
+      "event": "rejected",
+      "reason": "unscoreable: Text is too short to score \u2014 a few sentences at least.",
+      "status": "rejected",
+      "timestamp": "2026-11-01T04:25:21+00:00"
+    },
+    {
+      "combined_score": 0.8309,
+      "content_id": "72a627a9-0a58-414a-8d7e-97f8eecc5c34",
+      "creator_id": "sample_user",
+      "guess": "unsure",
+      "label": "PLACEHOLDER label (filled in at Milestone 5)",
+      "model_score": 0.8309,
+      "status": "decided",
+      "style_score": 0.0,
+      "timestamp": "2026-11-01T04:26:45+00:00"
+    },
+    {
+      "combined_score": 0.7551,
+      "content_id": "73737601-4132-452d-a946-f1124f79b45c",
+      "creator_id": "sample_user",
+      "guess": "unsure",
+      "label": "PLACEHOLDER label (filled in at Milestone 5)",
+      "model_score": 0.7551,
+      "status": "decided",
+      "style_score": 0.0,
+      "timestamp": "2026-11-01T04:29:21+00:00"
+    }
+  ]
+}
+$ curl -X POST http://127.0.0.1:5000/submit -H "Content-Type: application/json" -d '{"text":"So I went down to the shop yesterday and, honestly, the whole thing was a mess. Nobody knew where anything was. I ended up just leaving.","creator_id":"sample_user"}'
+{
+  "confidence": 0.7551,
+  "content_id": "73737601-4132-452d-a946-f1124f79b45c",
+  "guess": "unsure",
+  "label": "PLACEHOLDER label (filled in at Milestone 5)",
+  "model_score": 0.7551,
+  "style_score": 0.0
+}
+$ curl -X POST http://127.0.0.1:5000/submit -H "Content-Type: application/json" -d '{"text":"The implementation of the proposed framework requires careful consideration of several key factors. First, it is important to note that the system must handle a wide variety of inputs.","creator_id":"sample_user"}'
+{
+  "confidence": 0.8309,
+  "content_id": "72a627a9-0a58-414a-8d7e-97f8eecc5c34",
+  "guess": "unsure",
+  "label": "PLACEHOLDER label (filled in at Milestone 5)",
+  "model_score": 0.8309,
+  "style_score": 0.0
+}
