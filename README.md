@@ -559,38 +559,63 @@ route-level validation gaps.
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** added an upper bound on input length in `app.py::submit` —
+text over 10,000 characters returns 400 with a rejection log entry, before the
+model runs.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** Criterion 5 and Pattern 3a. The 50,000-word
+input returned 200 and scored AI (0.9985), and MF08 (60,000 characters) did the
+same. The route checked presence, not length.
 
 ### Attack Run — After
 
-<!-- Same format. `run_attacks.py --label after` -->
+56 attacks, 1 auto-marked BROKE (RQ07, unchanged). MF08 moved from 200 (AI,
+0.840) to 400.
 
+| Metric | Before | After |
+|---|---|---|
+| Auto-BROKE | 1 | 1 |
+| MF08 | 200, AI | 400 |
+| Criterion 5 | 3/4 | ? |
 
-
-**Did it help, and how do I know:**
-
-<!-- Widening the unsure band usually fixes one problem and creates another.
-     Reporting that trade honestly is worth full credit. -->
-
-
+**Did it help, and how do I know:** MF08 moved from 200 to 400, and criterion 5
+moved from 3/4 to ?/4. RQ07 still returns 500 — the crash happens before the
+length check, so this change does not touch it. That is a separate fix, noted
+in What's Still Broken.
 
 ---
 
 ## What's Still Broken
 
-<!-- For each attack still getting through and each criterion still missed:
-     what you'd do, and why you stopped. -->
+**RQ07 — JSON array body still returns 500.** The length cap does not fix it:
+the crash happens before the length check, when `.get` is called on a list.
+What I'd do: check the body is a dict before reading `text`. Why I stopped: my
+one change was the length cap, chosen because it also moves criterion 5; the
+crash is a separate fix.
 
+**MF03–MF07, RQ02, RQ06 — 7 malformed attacks still scored as text.** Control
+characters, punctuation-only, a long single word, emoji, RTL script, missing
+creator_id, and object creator_id all reach the model. What I'd do: reject text
+with no recognisable words. Why I stopped: that is a validity heuristic with its
+own false-positive risk, and it is a second change.
 
+**Criterion 2 (score spread) and criterion 3 (label coverage) still MISSED.**
+The 0.066 gap and the unreachable AI label are signal-level problems. What I'd
+do: reduce the style signal's weight or recalibrate it. Why I stopped: that is a
+reweighting change, not a route fix.
 
-**The trade I'd make if this ran for real:**
+**Evasion (9 broke) and false positives (6 broke) are unchanged.** Signal one
+cannot tell predictable from machine-written, and signal two is cheap to move.
+What I'd do: change a signal or a weight. Why I stopped: a different improvement
+from the length cap.
 
-<!-- Two sentences. Fewer wrong accusations means more AI text getting through.
-     Say which way you'd go and WHO PAYS FOR IT. -->
-
-
+**The trade I'd make if this ran for real:** I would widen the unsure band —
+raise `AI_THRESHOLD` from 0.65 to about 0.75 — so formal, non-native, and plain
+human writing stops being labelled AI. The people who pay for that are the
+site's readers and editors: more AI text slips through as "unsure" and needs a
+human reviewer. I would make that trade because a false positive lands on a real
+person who cannot prove authorship, while a false negative lands on a platform
+that can afford review.
 
 <!-- ═════════════════════════════════════════════════════════════════════
 

@@ -24,6 +24,7 @@ Routes:
     GET  /health      is the service up, and is the model loaded
 """
 
+from pydoc import text
 import uuid
 
 from flask import Flask, jsonify, request
@@ -167,6 +168,15 @@ def submit():
             reason="empty_or_missing_text",
         )
         return jsonify({"error": "text is required and must be a non-empty string"}), 400
+
+    MAX_TEXT_LENGTH = 10000
+    if len(text) > MAX_TEXT_LENGTH:
+        audit.log_rejection(
+            creator_id=creator_id or "unknown",
+            reason="text_too_long",
+            length=len(text),
+        )
+        return jsonify({"error": f"text must be under {MAX_TEXT_LENGTH} characters"}), 400
 
     content_id = str(uuid.uuid4())
 
