@@ -526,6 +526,35 @@ the 50,000-word input returned 200 and scored AI (0.9985). Stage: the route.
 Mechanism: the route has no upper bound on length, so an enormous repeated
 token sequence reaches the model and is scored as extremely predictable.
 
+**Broken attacks — four patterns**
+
+**Pattern 1 — evasion (9 broke):**
+Typos, broken sentences, pasted quotations, extreme sentence
+lengths, and punctuation padding move signal two; unusual words and
+below-token-window text move signal one; a heavy edit and AI text with a human
+opening move both. Stage: signal two, with signal one on the vocabulary cases.
+
+**Pattern 2 — false positives (6 broke):**
+Formal register, non-native
+careful writing, technical documentation, template imitation, and deliberate
+repetition all scored 0.74–0.88 on signal one; signal two (0.42–0.62) was not
+low enough to bring the combined score below 0.65. Stage: signal one, with the
+combining rule failing to compensate.
+
+**Pattern 3a — malformed scored as normal text (8 broke):**
+Control characters, punctuation-only, a long single
+word, emoji, RTL script, 60,000 characters, missing creator_id, and object
+creator_id all reached the model. Stage: the route. Mechanism: signal one
+scores repeated, predictable tokens as extremely AI-like.
+
+**Pattern 3b — RQ07 crashed (1 broke).**
+A JSON array body returns 500.
+Stage: the rate-limit key. Mechanism: `.get("creator_id")` is called on the
+parsed body before it is checked to be a dict; a list has no `.get`.
+
+Patterns 1 and 2 are the same problem at two ends. Patterns 3a and 3b are
+route-level validation gaps.
+
 ---
 
 ## The Improvement
