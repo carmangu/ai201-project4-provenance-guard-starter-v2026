@@ -351,6 +351,17 @@ does not inherit the variable set in another terminal.
 app.py, and then as a permanent user environment variable so Unit 8's
 run_attacks.py and run_eval.py won't hit the same problem.
 
+**Moment 3**
+
+- *What I asked for:* whether the length cap actually fixed anything, or whether
+  I was reading the after-run generously.
+
+- *What came back:* it fixed MF08 (200 → 400) and left RQ07 broken at 500.
+
+- *What I changed:* I wrote both facts down in the improvement section instead
+  of describing the route as fixed. The unchanged failures are listed in What's
+  Still Broken.
+
 <!-- ═══════════════════════ UNIT 8 — THE TEST ═══════════════════════ -->
 
 ---
