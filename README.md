@@ -406,10 +406,38 @@ The first one is slow while the model loads.
 
 ## Attack Run — Before
 
-<!-- Every attack with its outcome and a held-or-broke mark.
-     `run_attacks.py --label before` produces the table. -->
+56 attacks, run in full. Harness auto-marked 1 BROKE (RQ07, a 500); I judged the
+other 55. **Result: 31 HELD / 25 BROKE.**
 
+| Family | Attacks | HELD | BROKE |
+|---|---|---|---|
+| evasion | 10 | 1 | 9 |
+| false_positive | 8 | 2 | 6 |
+| prompt_injection | 6 | 6 | 0 |
+| malformed | 20 | 10 | 10 |
+| flood_same_creator | 12 | 12 | 0 |
+| **total** | **56** | **31** | **25** |
 
+**Evasion (9 broke):** typos, broken sentences, a pasted quotation, unusual
+words, heavy editing, extreme sentence-length contrast, punctuation padding,
+below-token-window text, and AI text with a human opening all landed at human
+or unsure. Only EV10 (repeated stanza structure) held — both signals read it
+as AI.
+
+**False positives (6 broke):** formal register (FP02), non-native careful
+writing (FP03), technical documentation (FP05), template imitation (FP06), and
+deliberate repetition (FP07) were all labelled AI. Signal one scores formal,
+predictable prose high; signal two does not pull it back below 0.65.
+
+**Prompt injection (6 held):** the model signal measures perplexity; it treats
+injected instructions as content, not commands. No injection moved the decision.
+
+**Malformed (10 broke):** control characters, punctuation-only, a single long
+word, emoji, RTL script, 60,000 characters, missing creator_id, and object
+creator_id all reached the model and were scored. RQ07 (JSON array body)
+returned 500. The clean rejections (400/429) held.
+
+**Flood (12 held):** first five 200, sixth onward 429.
 
 **Ten audit log entries from the run**
 
@@ -419,10 +447,13 @@ The first one is slow while the model loads.
 
 ```
 
-**The single worst outcome** — the one I'd least want to explain to a writer
-whose work got caught by it:
+**The single worst outcome** 
 
-
+FP03, the non-native English speaker writing carefully,
+confidence 0.72, labelled "This writing looks machine-generated to us." The
+writer did what signal one rewards least — plain, predictable second-language
+writing — and was accused of being a machine. It is the false positive the M1
+design note predicted, reproduced at high confidence.
 
 ---
 

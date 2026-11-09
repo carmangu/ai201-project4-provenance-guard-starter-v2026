@@ -1,0 +1,809 @@
+{
+  "count": 82,
+  "entries": [
+    {
+      "creator_id": "me",
+      "event": "rejected",
+      "reason": "unscoreable: Text is too short to score \u2014 a few sentences at least.",
+      "status": "rejected",
+      "timestamp": "2026-11-01T04:25:21+00:00"
+    },
+    {
+      "combined_score": 0.8309,
+      "content_id": "72a627a9-0a58-414a-8d7e-97f8eecc5c34",
+      "creator_id": "sample_user",
+      "guess": "unsure",
+      "label": "PLACEHOLDER label (filled in at Milestone 5)",
+      "model_score": 0.8309,
+      "status": "decided",
+      "style_score": 0.0,
+      "timestamp": "2026-11-01T04:26:45+00:00"
+    },
+    {
+      "combined_score": 0.7551,
+      "content_id": "73737601-4132-452d-a946-f1124f79b45c",
+      "creator_id": "sample_user",
+      "guess": "unsure",
+      "label": "PLACEHOLDER label (filled in at Milestone 5)",
+      "model_score": 0.7551,
+      "status": "decided",
+      "style_score": 0.0,
+      "timestamp": "2026-11-01T04:29:21+00:00"
+    },
+    {
+      "combined_score": 0.7001,
+      "content_id": "13350cb1-b6c0-4030-a9a2-32d7d871b202",
+      "creator_id": "health_test",
+      "guess": "unsure",
+      "label": "PLACEHOLDER label (filled in at Milestone 5)",
+      "model_score": 0.8309,
+      "status": "decided",
+      "style_score": 0.5038,
+      "timestamp": "2026-11-01T07:47:07+00:00"
+    },
+    {
+      "combined_score": 0.6262,
+      "content_id": "025eedca-e93a-4b41-8aa0-f636edb86183",
+      "creator_id": "calib_ai",
+      "guess": "unsure",
+      "label": "PLACEHOLDER label (filled in at Milestone 5)",
+      "model_score": 0.7692,
+      "status": "decided",
+      "style_score": 0.4118,
+      "timestamp": "2026-11-01T07:47:55+00:00"
+    },
+    {
+      "combined_score": 0.5598,
+      "content_id": "0c3ad8e1-9a11-4ca7-b091-2755659469d2",
+      "creator_id": "calib_human_email",
+      "guess": "unsure",
+      "label": "PLACEHOLDER label (filled in at Milestone 5)",
+      "model_score": 0.6133,
+      "status": "decided",
+      "style_score": 0.4796,
+      "timestamp": "2026-11-01T07:47:56+00:00"
+    },
+    {
+      "combined_score": 0.675,
+      "content_id": "519be8a4-7b3f-4c60-8f71-2f77510b1a93",
+      "creator_id": "calib_human_formal",
+      "guess": "unsure",
+      "label": "PLACEHOLDER label (filled in at Milestone 5)",
+      "model_score": 0.8216,
+      "status": "decided",
+      "style_score": 0.4551,
+      "timestamp": "2026-11-01T07:47:56+00:00"
+    },
+    {
+      "combined_score": 0.5964,
+      "content_id": "9f492972-ae79-4ed4-a2c6-fb283ec8d007",
+      "creator_id": "calib_edited_ai",
+      "guess": "unsure",
+      "label": "PLACEHOLDER label (filled in at Milestone 5)",
+      "model_score": 0.7286,
+      "status": "decided",
+      "style_score": 0.398,
+      "timestamp": "2026-11-01T07:47:57+00:00"
+    },
+    {
+      "combined_score": 0.6262,
+      "content_id": "09d34803-2c14-4137-a026-1d78b363ae57",
+      "creator_id": "calib_ai",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.7692,
+      "status": "decided",
+      "style_score": 0.4118,
+      "timestamp": "2026-11-01T08:20:51+00:00"
+    },
+    {
+      "combined_score": 0.5624,
+      "content_id": "8d9d15e5-2432-4f81-b626-3f51463d0c64",
+      "creator_id": "label_human_test",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.8311,
+      "status": "decided",
+      "style_score": 0.1985,
+      "timestamp": "2026-11-01T08:20:52+00:00"
+    },
+    {
+      "combined_score": 0.5598,
+      "content_id": "82820399-1067-4b8b-9595-91921c26bbc2",
+      "creator_id": "calib_human_email",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.6133,
+      "status": "decided",
+      "style_score": 0.4796,
+      "timestamp": "2026-11-01T08:20:53+00:00"
+    },
+    {
+      "content_id": "8d9d15e5-2432-4f81-b626-3f51463d0c64",
+      "creator_id": "label_human_test",
+      "event": "appeal",
+      "reasoning": "I wrote this myself. It is my own work.",
+      "status": "under_review",
+      "timestamp": "2026-11-01T08:27:29+00:00"
+    },
+    {
+      "combined_score": 0.2209,
+      "content_id": "3752a726-e8b7-42ff-9720-b3f82a74e0aa",
+      "creator_id": "flood_tester",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.2587,
+      "status": "decided",
+      "style_score": 0.1642,
+      "timestamp": "2026-11-09T02:33:32+00:00"
+    },
+    {
+      "combined_score": 0.2209,
+      "content_id": "c26353c6-c4a5-4874-9a1a-d709795b3e5d",
+      "creator_id": "flood_tester",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.2587,
+      "status": "decided",
+      "style_score": 0.1642,
+      "timestamp": "2026-11-09T02:33:32+00:00"
+    },
+    {
+      "combined_score": 0.2209,
+      "content_id": "710ff176-af14-49d9-8174-423100419b71",
+      "creator_id": "flood_tester",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.2587,
+      "status": "decided",
+      "style_score": 0.1642,
+      "timestamp": "2026-11-09T02:33:32+00:00"
+    },
+    {
+      "combined_score": 0.2209,
+      "content_id": "12e80a63-1805-4e09-a7f0-d66246af17d8",
+      "creator_id": "flood_tester",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.2587,
+      "status": "decided",
+      "style_score": 0.1642,
+      "timestamp": "2026-11-09T02:33:32+00:00"
+    },
+    {
+      "combined_score": 0.2209,
+      "content_id": "839cc677-5e55-421e-a0d3-261ee4d348b0",
+      "creator_id": "flood_tester",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.2587,
+      "status": "decided",
+      "style_score": 0.1642,
+      "timestamp": "2026-11-09T02:33:33+00:00"
+    },
+    {
+      "creator_id": "flood_tester",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T02:33:33+00:00"
+    },
+    {
+      "creator_id": "flood_tester",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T02:33:33+00:00"
+    },
+    {
+      "creator_id": "flood_tester",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T02:33:33+00:00"
+    },
+    {
+      "creator_id": "flood_tester",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T02:33:33+00:00"
+    },
+    {
+      "creator_id": "flood_tester",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T02:33:33+00:00"
+    },
+    {
+      "creator_id": "flood_tester",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T02:33:33+00:00"
+    },
+    {
+      "creator_id": "flood_tester",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T02:33:33+00:00"
+    },
+    {
+      "creator_id": "flood_tester",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T02:33:33+00:00"
+    },
+    {
+      "creator_id": "flood_tester",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T02:33:33+00:00"
+    },
+    {
+      "creator_id": "flood_tester",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T02:33:33+00:00"
+    },
+    {
+      "combined_score": 0.2767,
+      "content_id": "4597ec40-0924-41dd-ae81-ba7863046a16",
+      "creator_id": "attacker_EV01",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.1635,
+      "status": "decided",
+      "style_score": 0.4466,
+      "timestamp": "2026-11-09T04:33:44+00:00"
+    },
+    {
+      "combined_score": 0.4301,
+      "content_id": "b8e6a1c1-0204-4936-83f3-fd39c76b0159",
+      "creator_id": "attacker_EV02",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.5943,
+      "status": "decided",
+      "style_score": 0.1401,
+      "timestamp": "2026-11-09T04:33:44+00:00"
+    },
+    {
+      "combined_score": 0.5205,
+      "content_id": "d1da75f2-7f0e-4784-afca-7bab537961a7",
+      "creator_id": "attacker_EV03",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.6662,
+      "status": "decided",
+      "style_score": 0.3019,
+      "timestamp": "2026-11-09T04:33:44+00:00"
+    },
+    {
+      "combined_score": 0.5357,
+      "content_id": "63466ef7-fc6c-4a30-b266-6b9dcd09ab5a",
+      "creator_id": "attacker_EV04",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.6114,
+      "status": "decided",
+      "style_score": 0.4221,
+      "timestamp": "2026-11-09T04:33:44+00:00"
+    },
+    {
+      "combined_score": 0.288,
+      "content_id": "fd81f19e-9e2b-4603-8076-e6cb77ffc19c",
+      "creator_id": "attacker_EV05",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.3212,
+      "status": "decided",
+      "style_score": 0.2383,
+      "timestamp": "2026-11-09T04:33:44+00:00"
+    },
+    {
+      "combined_score": 0.469,
+      "content_id": "c502ea66-4b9c-4c51-a278-1aacf2161d89",
+      "creator_id": "attacker_EV06",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.5727,
+      "status": "decided",
+      "style_score": 0.3134,
+      "timestamp": "2026-11-09T04:33:44+00:00"
+    },
+    {
+      "combined_score": 0.5273,
+      "content_id": "b58259d3-8529-4db4-83bc-44fb644f102f",
+      "creator_id": "attacker_EV07",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.5862,
+      "status": "decided",
+      "style_score": 0.439,
+      "timestamp": "2026-11-09T04:33:45+00:00"
+    },
+    {
+      "combined_score": 0.2456,
+      "content_id": "55d02bcd-e64c-47b9-a401-f1921cf316e3",
+      "creator_id": "attacker_EV08",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.2452,
+      "status": "decided",
+      "style_score": 0.2463,
+      "timestamp": "2026-11-09T04:33:45+00:00"
+    },
+    {
+      "combined_score": 0.5468,
+      "content_id": "7a5f722b-f16b-467a-a53e-3e8825d0457d",
+      "creator_id": "attacker_EV09",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.7042,
+      "status": "decided",
+      "style_score": 0.3107,
+      "timestamp": "2026-11-09T04:33:45+00:00"
+    },
+    {
+      "combined_score": 0.9059,
+      "content_id": "150eed46-1e81-4cbc-8976-e18a7c2e1c5b",
+      "creator_id": "attacker_EV10",
+      "guess": "ai",
+      "label": "This looks like it was probably generated by AI.",
+      "model_score": 0.9792,
+      "status": "decided",
+      "style_score": 0.7959,
+      "timestamp": "2026-11-09T04:33:45+00:00"
+    },
+    {
+      "combined_score": 0.5681,
+      "content_id": "9eecccf0-1d3a-4746-8a35-df8e1dc3738c",
+      "creator_id": "attacker_FP01",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.6175,
+      "status": "decided",
+      "style_score": 0.494,
+      "timestamp": "2026-11-09T04:33:45+00:00"
+    },
+    {
+      "combined_score": 0.6761,
+      "content_id": "9331b47d-cd7f-4594-af75-372f96a16b01",
+      "creator_id": "attacker_FP02",
+      "guess": "ai",
+      "label": "This looks like it was probably generated by AI.",
+      "model_score": 0.7387,
+      "status": "decided",
+      "style_score": 0.5823,
+      "timestamp": "2026-11-09T04:33:45+00:00"
+    },
+    {
+      "combined_score": 0.7091,
+      "content_id": "b9237231-a9b9-41d3-a647-99b557bf37f9",
+      "creator_id": "attacker_FP03",
+      "guess": "ai",
+      "label": "This looks like it was probably generated by AI.",
+      "model_score": 0.8051,
+      "status": "decided",
+      "style_score": 0.565,
+      "timestamp": "2026-11-09T04:33:45+00:00"
+    },
+    {
+      "combined_score": 0.6262,
+      "content_id": "3bd77227-7d6b-4aa5-a68b-4282cb08b38e",
+      "creator_id": "attacker_FP04",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.8329,
+      "status": "decided",
+      "style_score": 0.3951,
+      "timestamp": "2026-11-09T04:33:46+00:00"
+    },
+    {
+      "combined_score": 0.7323,
+      "content_id": "a178cd32-9212-46ce-a3b4-88863dd82673",
+      "creator_id": "attacker_FP05",
+      "guess": "ai",
+      "label": "This looks like it was probably generated by AI.",
+      "model_score": 0.8005,
+      "status": "decided",
+      "style_score": 0.6301,
+      "timestamp": "2026-11-09T04:33:46+00:00"
+    },
+    {
+      "combined_score": 0.6584,
+      "content_id": "2e6fbf3a-2c2c-49f1-9f9c-06aeb131da24",
+      "creator_id": "attacker_FP06",
+      "guess": "ai",
+      "label": "This looks like it was probably generated by AI.",
+      "model_score": 0.8814,
+      "status": "decided",
+      "style_score": 0.4228,
+      "timestamp": "2026-11-09T04:33:46+00:00"
+    },
+    {
+      "combined_score": 0.6657,
+      "content_id": "06686764-eda5-4635-837d-1948ce5fa48e",
+      "creator_id": "attacker_FP07",
+      "guess": "ai",
+      "label": "This looks like it was probably generated by AI.",
+      "model_score": 0.8816,
+      "status": "decided",
+      "style_score": 0.4453,
+      "timestamp": "2026-11-09T04:33:46+00:00"
+    },
+    {
+      "combined_score": 0.2633,
+      "content_id": "a1e8ec70-aed6-4a8c-b855-826aae36a76a",
+      "creator_id": "attacker_FP08",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.3223,
+      "status": "decided",
+      "style_score": 0.1748,
+      "timestamp": "2026-11-09T04:33:46+00:00"
+    },
+    {
+      "combined_score": 0.3629,
+      "content_id": "24bdf1a7-5efb-4020-9c0b-0b25c22cecb3",
+      "creator_id": "attacker_PI01",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.4625,
+      "status": "decided",
+      "style_score": 0.2136,
+      "timestamp": "2026-11-09T04:33:46+00:00"
+    },
+    {
+      "combined_score": 0.1657,
+      "content_id": "a2bafe08-d796-4f61-b7a9-9268b3f6ef5c",
+      "creator_id": "attacker_PI02",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.2044,
+      "status": "decided",
+      "style_score": 0.1076,
+      "timestamp": "2026-11-09T04:33:46+00:00"
+    },
+    {
+      "combined_score": 0.5163,
+      "content_id": "ecb2803f-faed-4d39-a3fc-c03c3801a4ca",
+      "creator_id": "attacker_PI03",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.5943,
+      "status": "decided",
+      "style_score": 0.3994,
+      "timestamp": "2026-11-09T04:33:46+00:00"
+    },
+    {
+      "combined_score": 0.4571,
+      "content_id": "a6ff8c99-12cc-4e5d-a7c4-a586b5a43865",
+      "creator_id": "attacker_PI04",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.4998,
+      "status": "decided",
+      "style_score": 0.393,
+      "timestamp": "2026-11-09T04:33:47+00:00"
+    },
+    {
+      "combined_score": 0.4573,
+      "content_id": "7ec6ba15-6a9b-488e-8de4-7148c8810653",
+      "creator_id": "attacker_PI05",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.6401,
+      "status": "decided",
+      "style_score": 0.1565,
+      "timestamp": "2026-11-09T04:33:47+00:00"
+    },
+    {
+      "combined_score": 0.535,
+      "content_id": "28c58e6e-38c3-4478-b6eb-e46033342169",
+      "creator_id": "attacker_PI06",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.5583,
+      "status": "decided",
+      "style_score": 0.5,
+      "timestamp": "2026-11-09T04:33:47+00:00"
+    },
+    {
+      "creator_id": "attacker_MF01",
+      "event": "rejected",
+      "reason": "empty_or_missing_text",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:47+00:00"
+    },
+    {
+      "creator_id": "attacker_MF02",
+      "event": "rejected",
+      "reason": "unscoreable: Text is too short to score \u2014 a few sentences at least.",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:47+00:00"
+    },
+    {
+      "combined_score": 0.3133,
+      "content_id": "4126eb35-1da2-4666-b09d-83dc0ff21b81",
+      "creator_id": "attacker_MF03",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.0,
+      "status": "decided",
+      "style_score": 0.6667,
+      "timestamp": "2026-11-09T04:33:47+00:00"
+    },
+    {
+      "combined_score": 0.4254,
+      "content_id": "f6f4e598-b166-4120-9305-828f8dd0e4c0",
+      "creator_id": "attacker_MF04",
+      "guess": "unsure",
+      "label": "We're not sure who wrote this. It could be either, so we're not making a call either way.",
+      "model_score": 0.0112,
+      "status": "decided",
+      "style_score": 1.0,
+      "timestamp": "2026-11-09T04:33:47+00:00"
+    },
+    {
+      "combined_score": 0.8652,
+      "content_id": "0b15c81e-cf73-40f4-96a3-03774f5f472d",
+      "creator_id": "attacker_MF05",
+      "guess": "ai",
+      "label": "This looks like it was probably generated by AI.",
+      "model_score": 0.9976,
+      "status": "decided",
+      "style_score": 0.6667,
+      "timestamp": "2026-11-09T04:33:48+00:00"
+    },
+    {
+      "combined_score": 0.9981,
+      "content_id": "a249944e-bd55-41ed-a62b-7cce320c1ddd",
+      "creator_id": "attacker_MF06",
+      "guess": "ai",
+      "label": "This looks like it was probably generated by AI.",
+      "model_score": 0.9969,
+      "status": "decided",
+      "style_score": 1.0,
+      "timestamp": "2026-11-09T04:33:48+00:00"
+    },
+    {
+      "combined_score": 0.9438,
+      "content_id": "032733dd-bb5c-472c-9e83-8723b88d436b",
+      "creator_id": "attacker_MF07",
+      "guess": "ai",
+      "label": "This looks like it was probably generated by AI.",
+      "model_score": 0.9064,
+      "status": "decided",
+      "style_score": 1.0,
+      "timestamp": "2026-11-09T04:33:48+00:00"
+    },
+    {
+      "combined_score": 0.8653,
+      "content_id": "3033c448-46b4-4729-8663-b1a1e22d59f5",
+      "creator_id": "attacker_MF08",
+      "guess": "ai",
+      "label": "This looks like it was probably generated by AI.",
+      "model_score": 0.9876,
+      "status": "decided",
+      "style_score": 0.6819,
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "creator_id": "attacker_RQ01",
+      "event": "rejected",
+      "reason": "empty_or_missing_text",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "combined_score": 0.3498,
+      "content_id": "da58fbc9-1e75-45af-9c3c-a2598107ce26",
+      "creator_id": "unknown",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.2395,
+      "status": "decided",
+      "style_score": 0.5152,
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "creator_id": "attacker_RQ03",
+      "event": "rejected",
+      "reason": "empty_or_missing_text",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "creator_id": "attacker_RQ04",
+      "event": "rejected",
+      "reason": "empty_or_missing_text",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "creator_id": "attacker_RQ05",
+      "event": "rejected",
+      "reason": "empty_or_missing_text",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "combined_score": 0.1628,
+      "content_id": "2f489b97-5b7d-4c89-b6a1-79fa1426a9d0",
+      "creator_id": {
+        "id": "x"
+      },
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.0492,
+      "status": "decided",
+      "style_score": 0.3333,
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "creator_id": "unknown",
+      "event": "rejected",
+      "reason": "empty_or_missing_text",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "creator_id": "unknown",
+      "event": "rejected",
+      "reason": "empty_or_missing_text",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "creator_id": "unknown",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "creator_id": "unknown",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "creator_id": "attacker_RQ12",
+      "event": "rejected",
+      "reason": "empty_or_missing_text",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "combined_score": 0.2679,
+      "content_id": "c4783072-cb1d-420a-aa0b-652d2fdde34d",
+      "creator_id": "attacker_flood",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.0287,
+      "status": "decided",
+      "style_score": 0.4815,
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "combined_score": 0.2679,
+      "content_id": "f12c3ece-3663-43dc-a2a2-317490b7dace",
+      "creator_id": "attacker_flood",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.0287,
+      "status": "decided",
+      "style_score": 0.4815,
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "combined_score": 0.2679,
+      "content_id": "6fd5c319-9fc6-4cec-8b41-24126545f6ca",
+      "creator_id": "attacker_flood",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.0287,
+      "status": "decided",
+      "style_score": 0.4815,
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "combined_score": 0.2679,
+      "content_id": "85f8402a-9076-425d-9919-b660054fd591",
+      "creator_id": "attacker_flood",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.0287,
+      "status": "decided",
+      "style_score": 0.4815,
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "combined_score": 0.2679,
+      "content_id": "a0fcf0b9-9ec9-4b21-946a-acf2934ed68d",
+      "creator_id": "attacker_flood",
+      "guess": "human",
+      "label": "We think this was probably written by a person.",
+      "model_score": 0.0287,
+      "status": "decided",
+      "style_score": 0.4815,
+      "timestamp": "2026-11-09T04:33:49+00:00"
+    },
+    {
+      "creator_id": "attacker_flood",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:50+00:00"
+    },
+    {
+      "creator_id": "attacker_flood",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:50+00:00"
+    },
+    {
+      "creator_id": "attacker_flood",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:50+00:00"
+    },
+    {
+      "creator_id": "attacker_flood",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:50+00:00"
+    },
+    {
+      "creator_id": "attacker_flood",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:50+00:00"
+    },
+    {
+      "creator_id": "attacker_flood",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:50+00:00"
+    },
+    {
+      "creator_id": "attacker_flood",
+      "event": "rejected",
+      "limit": "5 per 1 minute",
+      "reason": "rate_limited",
+      "status": "rejected",
+      "timestamp": "2026-11-09T04:33:50+00:00"
+    }
+  ]
+}
