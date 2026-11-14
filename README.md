@@ -664,3 +664,34 @@ that can afford review.
 ---
 
 📖 **How to run this project: [RUNNING.md](RUNNING.md)**
+
+<!-- ═══════════════════════ UNIT 9 — THE CAPSTONE ═══════════════════════ -->
+
+## What This Extends
+
+This extends **Provenance Guard**, the text-provenance service built in Units
+7–8: a Flask backend that takes text, runs two signals, combines them into a
+confidence score, and returns a reader-facing label, with an append-only audit
+log and a `POST /appeal` path.
+
+What is new in this unit is the **operational layer**, not the detection logic:
+
+- a documented, reproducible run path that starts the service from a clean
+  checkout (Path B — local with logs, because the detector loads a local model
+  and does not fit a 512 MB free host);
+- structured logging with named fields, including per-request latency, so a run
+  can be reconstructed after the fact;
+- a measured cost per run — seconds of compute for one `/submit`.
+
+The signals, the combining rule, and the label mapping are unchanged. Nothing
+about detection accuracy is in scope here.
+
+## The Shape
+
+**Shape A — Deploy and instrument.** The extension is the operational layer: the
+run path, the instrumentation, and the numbers that come out of it.
+
+**Out of scope:** changing the signals, the weights, the thresholds, or the
+label text; adding new endpoints; fixing the detection failures recorded in
+Unit 8's What's Still Broken. This unit makes the existing system observable and
+reproducible, it does not make it more accurate.
