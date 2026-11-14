@@ -26,6 +26,7 @@ Routes:
 
 from pydoc import text
 import uuid
+import time
 
 from flask import Flask, jsonify, request
 
@@ -158,6 +159,7 @@ def health():
 @limiter.limit(f"{config.RATE_LIMIT_PER_MINUTE}/minute;{config.RATE_LIMIT_PER_DAY}/day")
 def submit():
 
+    start = time.perf_counter()
     payload = request.get_json(silent=True) or {}
     text = payload.get("text")
     creator_id = payload.get("creator_id")
@@ -192,8 +194,7 @@ def submit():
     combined = scoring.combine_signals(model_score, style_score)
     guess, label = scoring.score_to_label(combined)
     confidence = combined
-    
-    # ── Audit log: one JSON line per decision ──
+    duration_ms = round((time.perf_counter() - start) * 1000, 1)
     audit.log_decision(
         content_id=content_id,
         creator_id=creator_id or "unknown",
@@ -203,6 +204,8 @@ def submit():
         combined_score=confidence,
         label=label,
         status="decided",
+        duration_ms=duration_ms,
+        request_bytes=len(text),
     )
 
     return jsonify({
