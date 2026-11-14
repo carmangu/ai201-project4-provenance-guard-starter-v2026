@@ -6,6 +6,26 @@ This is a **web service**. It runs on your machine and you talk to it with
 `curl` from another terminal. If you've not built a backend before, that's
 assumed — the starter ships one that already answers.
 
+## Path B — local, with logs
+
+This service runs locally (Path B). It loads a local language model, so it does
+not fit a 512 MB free host.
+
+**Environment:**
+- Python 3.13
+- `pip install -r requirements.txt` (pinned; includes torch, transformers, flask, flask-limiter)
+- The `gpt2` model (~550 MB) is downloaded once by `python detector.py` and
+  cached under the Hugging Face cache directory.
+
+**First-time setup:**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python detector.py
+```
+
 ---
 
 ## Before your first class
