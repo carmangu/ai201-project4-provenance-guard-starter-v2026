@@ -904,3 +904,33 @@ from latency because it includes the model load.
   "timestamp": "2026-11-15T03:19:27+00:00"
 }
 ```
+
+## The Improvement
+
+**What I changed:** lowered `DETECTOR_MAX_TOKENS` in `config.py` from 400 to
+200, so the model signal truncates input earlier.
+
+**Which diagnosis pointed at it:** no criterion missed, so I tightened one
+instead. The first run log's warm latency was 57–82 ms, well under the 200 ms
+target. I tightened criterion 2 to 100 ms and lowered the token window to see
+whether less model work would keep latency under the tighter target. The honest
+reading is that my original target was low; this is the criterion I'd tighten.
+
+### Attack Run — After
+
+| Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
+|---|---|---|---|---|---|
+| 1. Log has duration+size | 10/10 | 10/10 | 10/10 | 10/10 | MET |
+| 2. Warm latency < 100 ms | 9/10 | 9/9 | 10/10 | 10/10 | MET |
+| 3. Avg cost 50–100 ms | band | 68.7 | 69.1 | 69.7 | MET |
+| 4. Bad input 4xx + logged | 3/3 | 3/3 | 3/3 | 3/3 | MET |
+| 5. Starts from RUNNING.md < 60s | 60s | 1s | 0s | 1s | MET |
+
+**Did it help, and how do I know:** no. The warm average was 68.7 / 69.1 / 69.7
+ms after the change, against 67.3 ms before — inside the noise. The test text is
+184 bytes, well under the new 200-token window, so the truncation never fires.
+The latency is dominated by request overhead (Flask, JSON parsing, logging), not
+by model inference. Lowering the token window is the right change if input
+length were the cost driver; for this workload it is not. I kept the tighter
+criterion 2 target at 100 ms — every warm request still passed — and recorded
+that the change itself did not move the number.
