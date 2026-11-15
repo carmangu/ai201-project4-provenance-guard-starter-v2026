@@ -934,3 +934,52 @@ by model inference. Lowering the token window is the right change if input
 length were the cost driver; for this workload it is not. I kept the tighter
 criterion 2 target at 100 ms — every warm request still passed — and recorded
 that the change itself did not move the number.
+
+## What It Costs
+
+**Measured cost per run:** 67.3 ms of compute per `/submit` (warm), range
+57.3–82.2 ms across thirty runs.
+
+**How I measured it:** I sent ten identical requests after the model was warm
+and read `duration_ms` from the audit log. The first request (3.7–4.1 s) was
+excluded because it includes loading gpt2. The remaining warm requests average
+67.3 ms. This is measured from the service's own log, not estimated from
+documentation.
+
+**Hundred-a-day arithmetic:** 100 submissions/day × 67.3 ms = 6730 ms/day =
+**6.7 seconds of model time per day**. At a 100-writer site, that is well under
+a minute of compute per day.
+
+## What's Still Broken
+
+**Criterion 2's target was too low.** The warm latency was 57–82 ms; I set the
+target at 200 ms. Tightening it to 100 ms still passed every run, which suggests
+it could be tightened further. What I'd do: set the target at 100 ms from the
+start, or measure a distribution rather than an average. Why I stopped: I
+tightened it in the improvement and it held; the next unit's job would be to
+find where it actually breaks.
+
+**The token-window change did not move latency.** Lowering `DETECTOR_MAX_TOKENS`
+from 400 to 200 made no measurable difference because the test text was under
+the new window. What I'd do: test with longer inputs, where truncation actually
+fires, before claiming the token window is a latency lever. Why I stopped: the
+change was honest but the measurement did not support it, and I recorded that.
+
+**What I'd do first if this were real:** measure latency at the input sizes
+real writers actually submit. A 184-byte test text is not a workload; a
+2,000-word essay is. The first thing I'd do is run the same measurement with
+input lengths from 50 to 4,000 words and find where the cost curve turns. That
+would tell me whether the token window matters at all, and it would give the
+next criterion a real target instead of one I guessed.
+
+## How I Used AI
+
+*Moment 1**
+
+- *What I asked for:* help deciding which of the four systems to extend and
+  which shape to pick.
+- *What came back:* a comparison of the three shapes and a note that a system
+  with a local model is a natural fit for Shape A on Path B.
+- *What I changed:* I kept Shape A on Path B because the arithmetic is mine —
+  512 MB free tier, 550 MB model, so Path B is the only path that fits. I wrote
+  that arithmetic into the README rather than just citing the shape.
